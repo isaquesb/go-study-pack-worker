@@ -14,7 +14,7 @@ import (
 )
 
 func main () {
-	support.Container = support.Store{App: createApp()}
+	support.Container = createApp()
 	defer readMessages()
 	service := createsvc.CreateSvc{}
 	err := service.Create(time.Now().String())
@@ -33,7 +33,7 @@ func readMessages() {
 	})
 }
 
-func createApp() di.Container {
+func createApp() support.Application {
 	builder, _ := di.NewBuilder()
 	builder.Add([]di.Def{
 		{
@@ -60,5 +60,5 @@ func createApp() di.Container {
 			},
 		},
 	}...)
-	return builder.Build()
+	return support.Application{Container: builder.Build()}
 }

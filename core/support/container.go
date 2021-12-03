@@ -6,20 +6,20 @@ import (
 	"worker/core/port/event"
 )
 
-var Container = Store{}
+var Container = Application{}
 
-type Store struct {
-	App di.Container
+type Application struct {
+	Container di.Container
 }
 
-func (c Store) Logger() port.Logger {
-	return c.App.Get("logger").(port.Logger)
+func (app Application) Logger() port.Logger {
+	return app.Container.Get("logger").(port.Logger)
 }
 
-func (c Store) EventManager() event.Manager {
-	return c.App.Get("eventManager").(event.Manager)
+func (app Application) EventManager() event.Manager {
+	return app.Container.Get("eventManager").(event.Manager)
 }
 
-func (c Store) Messenger() port.Messenger {
-	return c.App.Get("messenger").(port.Messenger)
+func (app Application) Messenger() port.Messenger {
+	return app.Container.Get("messenger").(port.Messenger)
 }
