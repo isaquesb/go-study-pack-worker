@@ -10,5 +10,5 @@ type CreateSvc struct {
 
 func (r CreateSvc) Create(id string) error {
 	e := custom.PackCreated{ID: id}
-	return support.Container.EventManager.FireEvent(e)
+	return support.Container.EventManager().FireEvent(e)
 }

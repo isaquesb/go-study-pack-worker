@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/gookit/event v1.0.5
 	github.com/rs/zerolog v1.26.0
+	github.com/sarulabs/di v2.0.0+incompatible
 	github.com/segmentio/kafka-go v0.4.23
 )
 
